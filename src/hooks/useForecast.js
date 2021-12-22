@@ -5,7 +5,7 @@ import getCurrentDayForecast from '../helpers/getCurrentDayForecast';
 import getUpcomingDaysForecast from '../helpers/getUpcomingDaysForecast';
 import getCurrentDayDetailedForecast from '../helpers/getCurrentDayDetailedForecast';
 
-const API_KEY = 'Yue3krx8oKmNmGqZY8gvPzK49AvfZtlb';
+const API_KEY = 'A3iGJJNRAAbcXcXGZVC0mEDaEAHHgTKx';
 const CITY_URL = 'http://dataservice.accuweather.com/locations/v1/cities/search';
 const WEATHER_URL = 'http://dataservice.accuweather.com/currentconditions/v1/';
 const FORECAST_URL = 'http://dataservice.accuweather.com/forecasts/v1/daily/5day/';
