@@ -9,6 +9,7 @@ const API_KEY = 'A3iGJJNRAAbcXcXGZVC0mEDaEAHHgTKx';
 const CITY_URL = 'http://dataservice.accuweather.com/locations/v1/cities/search';
 const WEATHER_URL = 'http://dataservice.accuweather.com/currentconditions/v1/';
 const FORECAST_URL = 'http://dataservice.accuweather.com/forecasts/v1/daily/5day/';
+const DOMAIN = 'https://hypham.netlify.app/';
 
 const useForecast = () => {
     const [isError, setError] = useState(false);
@@ -17,7 +18,7 @@ const useForecast = () => {
 
     // Get city information
     const getCity = async location => {
-        const { data } = await axios.get(CITY_URL, { params: { apikey: API_KEY, q: location } });
+        const { data } = await axios.get(`${DOMAIN}${CITY_URL}`, { params: { apikey: API_KEY, q: location } });
 
         if (!data || data.length === 0) {
             setError('Cannot found this location!');
@@ -30,7 +31,9 @@ const useForecast = () => {
 
     // Get weather information
     const getWeather = async id => {
-        const { data } = await axios.get(`${WEATHER_URL}${id}`, { params: { apikey: API_KEY, details: true } });
+        const { data } = await axios.get(`${DOMAIN}${WEATHER_URL}${id}`, {
+            params: { apikey: API_KEY, details: true },
+        });
         if (!data || data.length === 0) {
             setError('Something went wrong');
             setLoading(false);
@@ -42,7 +45,7 @@ const useForecast = () => {
 
     // Get forcast 5 days
     const getForcast = async id => {
-        const { data } = await axios.get(`${FORECAST_URL}${id}`, {
+        const { data } = await axios.get(`${DOMAIN}${FORECAST_URL}${id}`, {
             params: { apikey: API_KEY, details: true, metric: true },
         });
         if (!data || data.length === 0) {
