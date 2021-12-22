@@ -1,12 +1,12 @@
 import moment from 'moment';
 
-const getCurrentDayForecast = (data, title) => ({
-    weekday: moment(data.applicable_date).format('dddd'),
-    date: moment(data.applicable_date).format('MMMM Do'),
-    location: title,
-    temperature: Math.round(data.the_temp),
-    weatherIcon: `'https://www.metaweather.com/static/img/weather/${data.weather_state_abbr}.svg`,
-    weatherDescription: data.weather_state_name,
+const getCurrentDayForecast = (data, location_name) => ({
+    weekday: moment(data.EpochTime * 1000).format('dddd'),
+    date: moment(data.EpochTime * 1000).format('MMMM Do'),
+    location: location_name,
+    temperature: Math.round(data.Temperature.Metric.Value),
+    weatherIcon: data.WeatherIcon < 10 ? `0${data.WeatherIcon}` : `${data.WeatherIcon}`,
+    weatherDescription: data.WeatherText,
 });
 
 export default getCurrentDayForecast;

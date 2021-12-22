@@ -1,33 +1,23 @@
 const currentDayForecast = data => [
     {
-        name: 'predictability',
-        value: data.predictability,
-        unit: '%',
+        name: 'temp max',
+        value: `${Math.round(data[0].Temperature.Maximum.Value)}°`,
+        unit: 'C',
     },
     {
-        name: 'humidity',
-        value: data.humidity,
-        unit: '%',
+        name: 'temp min',
+        value: `${Math.round(data[0].Temperature.Minimum.Value)}°`,
+        unit: 'C',
     },
     {
-        name: 'wind',
-        value: Math.round(data.wind_speed),
-        unit: 'km/h',
+        name: 'real feel max',
+        value: `${Math.round(data[0].RealFeelTemperature.Maximum.Value)}°`,
+        unit: 'C',
     },
     {
-        name: 'air pressure',
-        value: data.air_pressure,
-        unit: 'mb',
-    },
-    {
-        name: 'max temp',
-        value: Math.round(data.max_temp),
-        unit: '°C',
-    },
-    {
-        name: 'min temp',
-        value: Math.round(data.min_temp),
-        unit: '°C',
+        name: 'real feel min',
+        value: `${Math.round(data[0].RealFeelTemperature.Minimum.Value)}°`,
+        unit: 'C',
     },
 ];
 
