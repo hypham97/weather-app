@@ -6,9 +6,9 @@ import getUpcomingDaysForecast from '../helpers/getUpcomingDaysForecast';
 import getCurrentDayDetailedForecast from '../helpers/getCurrentDayDetailedForecast';
 
 const API_KEY = 'A3iGJJNRAAbcXcXGZVC0mEDaEAHHgTKx';
-const CITY_URL = 'http://dataservice.accuweather.com/locations/v1/cities/search';
-const WEATHER_URL = 'http://dataservice.accuweather.com/currentconditions/v1/';
-const FORECAST_URL = 'http://dataservice.accuweather.com/forecasts/v1/daily/5day/';
+const CITY_URL = 'https://dataservice.accuweather.com/locations/v1/cities/search';
+const WEATHER_URL = 'https://dataservice.accuweather.com/currentconditions/v1/';
+const FORECAST_URL = 'https://dataservice.accuweather.com/forecasts/v1/daily/5day/';
 
 const useForecast = () => {
     const [isError, setError] = useState(false);
