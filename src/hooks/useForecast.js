@@ -5,7 +5,11 @@ import getCurrentDayForecast from '../helpers/getCurrentDayForecast';
 import getUpcomingDaysForecast from '../helpers/getUpcomingDaysForecast';
 import getCurrentDayDetailedForecast from '../helpers/getCurrentDayDetailedForecast';
 
-const API_KEY = 'A3iGJJNRAAbcXcXGZVC0mEDaEAHHgTKx';
+const API_KEY = process.env.REACT_APP_ACCU_WEATHER_API_KEY;
+if (API_KEY === undefined) {
+    throw new Error('No Open Weather API Key defined');
+}
+
 const CITY_URL = 'https://dataservice.accuweather.com/locations/v1/cities/search';
 const WEATHER_URL = 'https://dataservice.accuweather.com/currentconditions/v1/';
 const FORECAST_URL = 'https://dataservice.accuweather.com/forecasts/v1/daily/5day/';
